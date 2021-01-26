@@ -1,0 +1,380 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Elastic Load Balancing and Auto Scaling - Everything you need to know for SAA Exam</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="This is a comprehensive guide created to help with AWS SAA Exam">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> About SAA Exam</a></li><li class="chapter-item expanded "><a href="chapter_2.html"><strong aria-hidden="true">2.</strong> Exam Domains</a></li><li class="chapter-item expanded "><a href="chapter_3.html"><strong aria-hidden="true">3.</strong> Identity Access Management</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_3_1.html"><strong aria-hidden="true">3.1.</strong> IAM Authentication Methods</a></li><li class="chapter-item expanded "><a href="chapter_3_2.html"><strong aria-hidden="true">3.2.</strong> MFA (MultiFactor Authentication)</a></li><li class="chapter-item expanded "><a href="chapter_3_3.html"><strong aria-hidden="true">3.3.</strong> STS (AWS Security Token)</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_4.html"><strong aria-hidden="true">4.</strong> AWS Global Infrastructure Overview</a></li><li class="chapter-item expanded "><a href="chapter_5.html"><strong aria-hidden="true">5.</strong> VPC (Virtual Private Cloud)</a></li><li class="chapter-item expanded "><a href="chapter_6.html"><strong aria-hidden="true">6.</strong> EC2 (Elastic Compute Cloud)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_6_1.html"><strong aria-hidden="true">6.1.</strong> Security Groups</a></li><li class="chapter-item expanded "><a href="chapter_6_2.html"><strong aria-hidden="true">6.2.</strong> Instance Metadata</a></li><li class="chapter-item expanded "><a href="chapter_6_3.html"><strong aria-hidden="true">6.3.</strong> Instance Userdata</a></li><li class="chapter-item expanded "><a href="chapter_6_4.html"><strong aria-hidden="true">6.4.</strong> Status Checks and Monitoring</a></li><li class="chapter-item expanded "><a href="chapter_6_5.html"><strong aria-hidden="true">6.5.</strong> Public,Private and Elastic IP addresses</a></li><li class="chapter-item expanded "><a href="chapter_6_6.html"><strong aria-hidden="true">6.6.</strong> Private Subnets and Bastion Hosts</a></li><li class="chapter-item expanded "><a href="chapter_6_7.html"><strong aria-hidden="true">6.7.</strong> NAT Instances and NAT Gateways</a></li><li class="chapter-item expanded "><a href="chapter_6_8.html"><strong aria-hidden="true">6.8.</strong> EC2 Placement Groups</a></li><li class="chapter-item expanded "><a href="chapter_6_9.html"><strong aria-hidden="true">6.9.</strong> Extras</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_7.html" class="active"><strong aria-hidden="true">7.</strong> Elastic Load Balancing and Auto Scaling</a></li><li class="chapter-item expanded "><a href="chapter_8.html"><strong aria-hidden="true">8.</strong> Virtual Private Cloud</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_8_1.html"><strong aria-hidden="true">8.1.</strong> Amazon VPC Components</a></li><li class="chapter-item expanded "><a href="chapter_8_2.html"><strong aria-hidden="true">8.2.</strong> Amazon VPC - Routing</a></li><li class="chapter-item expanded "><a href="chapter_8_3.html"><strong aria-hidden="true">8.3.</strong> Amazon VPC - Subnets</a></li><li class="chapter-item expanded "><a href="chapter_8_4.html"><strong aria-hidden="true">8.4.</strong> Amazon VPC - Internet Gateways</a></li><li class="chapter-item expanded "><a href="chapter_8_5.html"><strong aria-hidden="true">8.5.</strong> Amazon VPC - Secuirty Groups</a></li><li class="chapter-item expanded "><a href="chapter_8_6.html"><strong aria-hidden="true">8.6.</strong> Amazon VPC - Network ACLs</a></li><li class="chapter-item expanded "><a href="chapter_8_7.html"><strong aria-hidden="true">8.7.</strong> Amazon VPC - Connectivity</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_9.html"><strong aria-hidden="true">9.</strong> Route 53</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_9_1.html"><strong aria-hidden="true">9.1.</strong> Route 53 Hosted Zones</a></li><li class="chapter-item expanded "><a href="chapter_9_2.html"><strong aria-hidden="true">9.2.</strong> Route 53 Health Checks</a></li><li class="chapter-item expanded "><a href="chapter_9_3.html"><strong aria-hidden="true">9.3.</strong> CNAME vs Alias</a></li><li class="chapter-item expanded "><a href="chapter_9_4.html"><strong aria-hidden="true">9.4.</strong> Route 53 Routing Policies</a></li><li class="chapter-item expanded "><a href="chapter_9_5.html"><strong aria-hidden="true">9.5.</strong> Route 53 Traffic Flow</a></li><li class="chapter-item expanded "><a href="chapter_9_6.html"><strong aria-hidden="true">9.6.</strong> Route 53 Resolver</a></li><li class="chapter-item expanded "><a href="chapter_9_7.html"><strong aria-hidden="true">9.7.</strong> AWS Global Accelarator</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_10.html"><strong aria-hidden="true">10.</strong> Amazon S3</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_10_1.html"><strong aria-hidden="true">10.1.</strong> Amazon S3 Buckets</a></li><li class="chapter-item expanded "><a href="chapter_10_2.html"><strong aria-hidden="true">10.2.</strong> Amazon S3 Objects</a></li><li class="chapter-item expanded "><a href="chapter_10_3.html"><strong aria-hidden="true">10.3.</strong> Amazon S3 Sub-resources</a></li><li class="chapter-item expanded "><a href="chapter_10_4.html"><strong aria-hidden="true">10.4.</strong> Amazon S3 Storage Classes</a></li><li class="chapter-item expanded "><a href="chapter_10_5.html"><strong aria-hidden="true">10.5.</strong> Amazon S3 Multipart upload</a></li><li class="chapter-item expanded "><a href="chapter_10_6.html"><strong aria-hidden="true">10.6.</strong> Amazon S3 Copy</a></li><li class="chapter-item expanded "><a href="chapter_10_7.html"><strong aria-hidden="true">10.7.</strong> Amazon S3 Transfer Accelaration</a></li><li class="chapter-item expanded "><a href="chapter_10_8.html"><strong aria-hidden="true">10.8.</strong> Amazon S3 Encryption</a></li><li class="chapter-item expanded "><a href="chapter_10_9.html"><strong aria-hidden="true">10.9.</strong> Amazon S3 Performance</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_11.html"><strong aria-hidden="true">11.</strong> Amazon CloudFront</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_11_1.html"><strong aria-hidden="true">11.1.</strong> Amazon CloudFront Origins</a></li><li class="chapter-item expanded "><a href="chapter_11_2.html"><strong aria-hidden="true">11.2.</strong> Amazon CloudFront Distributions</a></li><li class="chapter-item expanded "><a href="chapter_11_3.html"><strong aria-hidden="true">11.3.</strong> Amazon CloudFront Charges</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_12.html"><strong aria-hidden="true">12.</strong> Amazon EBS (Elastic Block Store)</a></li><li class="chapter-item expanded "><a href="notes.html"><strong aria-hidden="true">13.</strong> Notes</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Everything you need to know for SAA Exam</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#elastic-load-balancing-and-auto-scaling" id="elastic-load-balancing-and-auto-scaling">Elastic Load Balancing and Auto Scaling</a></h1>
+<h3><a class="header" href="#elastic-load-balancing" id="elastic-load-balancing">Elastic Load Balancing</a></h3>
+<p>Load Balancing refers to efficiently distributing incoming network traffic across a group of backend servers.</p>
+<h3><a class="header" href="#application-load-balancer" id="application-load-balancer">Application Load Balancer</a></h3>
+<ul>
+<li>Operates at the request level.</li>
+<li>Routes based on the content of request (Layer 7)</li>
+<li>Supports path based routing,host based routing,query string parameter based routing and source IP address based routing.</li>
+<li>Supports IP addresses, Lambda Functions and containers as targets.</li>
+<li><code>HTTPS</code>,<code>HTTP</code></li>
+</ul>
+<h3><a class="header" href="#network-load-balancer" id="network-load-balancer">Network Load Balancer</a></h3>
+<ul>
+<li>Operates at the connection level.</li>
+<li>Routes connections based on IP protocol Data (layer 4)</li>
+<li>Offers ultra high performance,low latency,and TLS offloading at scale.</li>
+<li>Can have static IP / Elastic IP</li>
+<li>Supports UDP and static IP addresses as targets.</li>
+</ul>
+<h3><a class="header" href="#classic-load-balancer" id="classic-load-balancer">Classic Load Balancer</a></h3>
+<ul>
+<li>Old generation; not recommended for new applications.</li>
+<li>Performs routing at Layer 4 and Layer 7</li>
+<li>Use for existing applications running on EC2-Classic instance</li>
+</ul>
+<h3><a class="header" href="#internet-facing-vs-internal" id="internet-facing-vs-internal">Internet Facing VS Internal</a></h3>
+<ul>
+<li>Internet Facing:
+<ul>
+<li>ELB nodes have public IPs.</li>
+<li>Routes traffic to the private IP addresses of the EC2 instances.</li>
+<li>Need one public subnet in each AZ where ELB is defined.</li>
+<li>ELB dns name format <code>&lt;name&gt;-&lt;id-number&gt;.&lt;region&gt;.elb.amazonaws.com</code></li>
+</ul>
+</li>
+<li>Internal only ELB:
+<ul>
+<li>ELB nodes have private IPs.</li>
+<li>Routes traffic to the private IPs of the EC2 instances.</li>
+<li>ELB dns name format <code>internal-&lt;name&gt;-&lt;id-number&gt;.&lt;region&gt;.elb.amazonaws.com</code></li>
+</ul>
+</li>
+</ul>
+<h3><a class="header" href="#elastic-load-balancing-1" id="elastic-load-balancing-1">Elastic Load Balancing</a></h3>
+<ul>
+<li>EC2 instances and containers can be registered against an ELB</li>
+<li>ELB nodes use IP addresses within your subnets, ensure at least a /27 subnet
+and make sure there are at least 8 IP addresses available in that order for the ELB to scale.</li>
+<li>An ELB forwards traffic to <code>eth0</code> (primary IP address).</li>
+<li>An ELB listener is the process that checks for the connection requests:
+<ul>
+<li>Listeners for CLB provide options for <code>TCP</code> and <code>HTTP</code>/<code>HTTPS</code>.</li>
+<li>Listeners for ALB only provide options for <code>HTTPS</code> and <code>HTTP</code></li>
+<li>Listeners for NLB only provide only <code>TCP</code> as an option</li>
+</ul>
+</li>
+</ul>
+<h3><a class="header" href="#elb-security-groups" id="elb-security-groups">ELB Security Groups</a></h3>
+<ul>
+<li>Security Groups control the ports and protocols that can reach the front-end listener.</li>
+<li>You must assign a security group for the ports and the protocols on the front end listener.</li>
+</ul>
+<h3><a class="header" href="#elb-monitoring" id="elb-monitoring">ELB Monitoring</a></h3>
+<ul>
+<li>CloudWatch every 1 min.</li>
+<li>ELB service sends information when requests are active.</li>
+<li>Access Logs:
+<ul>
+<li>Disabled by Default.</li>
+<li>Includes information about the client(not included in the Cloud Watch Metrics)</li>
+<li>Can identify requester IP,request type etc.</li>
+<li>Can be optionally stored and retained in S3.</li>
+</ul>
+</li>
+</ul>
+<h3><a class="header" href="#ec2-auto-scaling" id="ec2-auto-scaling">EC2 Auto Scaling</a></h3>
+<ul>
+<li>You can attach one or more classic ELBs to your existing Auto Scaling Groups.</li>
+<li>You can attach one or more Target Groups to your ASG to include instances behind an ALB.</li>
+<li>The ELBs must be in same region.</li>
+<li>Launch configuration is the template used to create new EC2 instances and includes parameters such as instance family,
+instance type,AMI,keypair and security groups.</li>
+</ul>
+<table>
+  <tr>
+    <th>Scaling Option</th>
+    <th>What is it?</th> 
+    <th>When to use?</th>
+  </tr>
+  <tr>
+    <td>Maintain</td>
+    <td>Ensures the required number of instances are running</td>
+    <td>Use when you always need a known number of instances running at all times</td>
+  </tr>
+  <tr>
+    <td>Manual</td>
+    <td>Manually change the desired capacity via console or CLI</td>
+    <td>Use when your needs change rarely enough that you are Ok! to make manual changes.</td>
+  </tr>
+  <tr>
+    <td>Schedule</td>
+    <td>Adjust Min/Max instances on specific dates/times or recurring time periods</td>
+    <td>Use when you know you are busy and quiet times are. Useful for ensuring enough instances are available before busy times</td>
+  </tr>
+    <tr>
+    <td>Dynamic</td>
+    <td>Scale in response to a system load or other triggers using metrics</td>
+    <td>Useful for changing capacity based on system usage eg if cpu hits 80%</td>
+</tr>
+</table>
+<h3><a class="header" href="#ec2-autoscaling---scaling-types" id="ec2-autoscaling---scaling-types">EC2 Autoscaling - Scaling Types</a></h3>
+<table style="width:50%">
+  <tr>
+    <th>Scaling</th>
+    <th>What is it?</th> 
+    <th>When to use?</th>
+  </tr>
+  <tr>
+    <td>Target Tracking Policy</td>
+    <td>The scaling adds or removes capacity as required to keep the metric at or close to the specified target value</td>
+    <td>A use case,when you want to keep the aggregate CPU usage of your ASG at 70%</td>
+  </tr>
+  <tr>
+    <td>Simple Scaling Policy</td>
+    <td>Waits until health check and cool down period expires before revaluating</td>
+    <td>This is more conservative way to add/remove instances.Useful when load is eratic.AWS recommend step scaling instead of simple in most cases</td>
+  </tr>
+  <tr>
+    <td>Step Scaling Policy</td>
+    <td>Increase or decrease the current capacity of your Auto Scaling group based on a set of scaling adjustments known as step adjustments</td>
+    <td>Useful when you want to vary adjustments based on the size of the alarm breach</td>
+  </tr>
+</table>
+<ul>
+<li>Can also scale based on AWS SQS.</li>
+<li>Uses a custom metric that's sent to Amazon Cloud Watch that measures the number of messages in the queue per EC2 instance in the auto scaling group.</li>
+<li>Then use a target tracking policy that configures your ASG to scale based on the custom metric and a set target value. Cloud watch alarms invoke the scaling policy.</li>
+<li>Use a custom <code>backlog per instance</code> metric to track not just the number of messages in the queue but the number available for retrieval.</li>
+</ul>
+<h3><a class="header" href="#ec2-autoscaling---termination-policy" id="ec2-autoscaling---termination-policy">EC2 Autoscaling - Termination Policy</a></h3>
+<ul>
+<li>Termination policies control which instances are terminated first when scale in event occurs.</li>
+<li>There is default termination policy and options for configuring your own customized termination policies.</li>
+<li>The default termination policy is designed to help ensure that instances span AZs evenly for High Availability Zones.</li>
+<li>The default policy is kept generic and flexible to cover a range of scenarios.</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="chapter_6_9.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="chapter_8.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="chapter_6_9.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="chapter_8.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
